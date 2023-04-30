@@ -1,0 +1,14 @@
+.done {
+    text-decoration: line-through;
+    cursor: pointer;
+}
+
+.undone {
+    cursor:pointer;
+}
+
+#list {
+    width: 100% !important;
+    display: flex;
+    justify-content: space-between;
+}
