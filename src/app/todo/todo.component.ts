@@ -1,37 +1,25 @@
 import { Component } from '@angular/core';
 import { Todo } from '../Todo.model';
+import { TodoService } from './todo.service';
 
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
-  styleUrls: ['./todo.component.css']
+  styleUrls: ['./todo.component.css'],
 })
 export class TodoComponent {
-  todos: Todo[] = [];
-  newTodo: string = "";
+  constructor(public todoService: TodoService) {}
 
+  todos: Todo[] = this.todoService.todos;
 
-  saveTodo(): void {
-    if(this.newTodo){
-      let todo = new Todo();
-      todo.name = this.newTodo
-      todo.id = new Date().getTime().toString()
-      todo.isComplated = true
-      this.todos.push(todo)
-      this.newTodo = ""
-      console.log('todo', todo)
-    } else {
-      alert("Please enter a new Todo")
-    }
-  }
+  saveTodo = this.todoService.saveTodo;
 
-  done(id:number) {
-    this.todos[id].isComplated = !this.todos[id].isComplated
+  done(id: number) {
+    this.todos[id].isComplated = !this.todos[id].isComplated;
   }
 
   remove(id: number) {
-    console.log('id', id)
-    this.todos = this.todos.filter((todo, index) => id !== index) ;
+    console.log('id', id);
+    this.todos = this.todos.filter((todo, index) => id !== index);
   }
-
 }

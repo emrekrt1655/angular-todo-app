@@ -1,27 +1,24 @@
-<div class="form-inline">
-    <div class="form-group" style="width: 100%; text-align: center">
-      <input
-        type="text"
-        placeholder="A new Todo"
-        class="form-control"
-        style="width: 40%"
-        [(ngModel)]="newTodo"
-      />
-      <button class="btn btn-outline-secondary btn-primary" (click)="saveTodo()">
-        Save Todo
-      </button>
-    </div>
-  </div>
 <div class="col col-lg-3" style="width: 100%">
-  <ul class="list-group justify-md" style="margin-top: 30px;" id="list" *ngFor="let todo of todos; let i = index">
-    
+  <ul
+    class="list-group justify-md"
+    style="margin-top: 30px"
+    id="list"
+    *ngFor="let todo of todos; let i = index"
+  >
     <li class="list-group-item" id="list">
       <span> {{ i + 1 }} </span>
-      <span class="{{ !todo.isComplated ? 'done' : 'undone' }}" (click)="done(i)">
+      <span
+        class="{{ !todo.isComplated ? 'done' : 'undone' }}"
+        (click)="done(i)"
+      >
         {{ todo.name }}
       </span>
-      <span style="color: red; font-weight: 900; cursor: pointer;" (click)="remove(i)" > X </span>
+      <span
+        style="color: red; font-weight: 900; cursor: pointer"
+        (click)="remove(i)"
+      >
+        X
+      </span>
     </li>
   </ul>
 </div>
-
